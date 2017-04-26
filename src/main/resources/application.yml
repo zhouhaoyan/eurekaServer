@@ -1,0 +1,21 @@
+server:
+  port: 8011
+
+spring:
+  profiles: eureka1 # profiles:eureka  /ect/host 可配置 eureka 对应的ip地址 然后用eureka 替代
+
+security:
+  basic:
+    enabled: true #开启认证
+  user:
+    name: user
+    password: 123456
+
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    register-with-eureka: true
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone:  http://user:123456@eureka2:8012/eureka  #注册 中心已经开启认证
